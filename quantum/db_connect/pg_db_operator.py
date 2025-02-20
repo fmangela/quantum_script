@@ -1,7 +1,7 @@
 from quantum.config import config_
 from quantum.logger import log
-import psycopg2
-from psycopg2.extras import DictCursor
+# import psycopg2
+# from psycopg2.extras import DictCursor
 from psycopg2.pool import SimpleConnectionPool
 import os
 
@@ -39,7 +39,7 @@ class PgDbOperator:
 
     def insert(self, table_name: str, data_dict: dict) -> None:
         """
-        插入数据
+        插入单行数据
         :param table_name:表名称
         :param data_dict:数据字典
         :return:无
@@ -85,7 +85,7 @@ class PgDbOperator:
 
     def update(self, table_name: str, data_dict: dict, condition: str) -> None:
         """
-        更新数据
+        更新单行数据
         :param table_name:表名称
         :param data_dict:数据字典
         :param condition:更新条件
@@ -124,7 +124,7 @@ class PgDbOperator:
 
     def select_star(self, table_name: str, condition: str) -> list:
         """
-        查询数据
+        查询所有数据
         :param table_name:表名称
         :param condition:查询条件
         :return:查询结果列表
@@ -157,7 +157,7 @@ class PgDbOperator:
 
     def upsert(self, table_name: str, data_dict: dict, key_columns: list[str]) -> None:
         """
-        upsert数据，如果数据库中存在主键，则更新，否则插入
+        upsert单行数据，如果数据库中存在主键，则更新，否则插入
         :param table_name:表名称
         :param data_dict:数据字典
         :param key_columns:主键列
@@ -244,8 +244,8 @@ class PgDbOperator:
                 columns_str = ','.join(row.keys())
                 conflict_target = ','.join(key_columns)
                 set_clause = ', '.join([f"{col}=EXCLUDED.{col}" for col in row.keys()])
-                upsert_template = (f"INSERT INTO {table_name} ({columns_str}) VALUES ({placeholders}) "
-                                   f"ON CONFLICT ({conflict_target}) DO UPDATE SET {set_clause};")
+                upsert_template = (f'INSERT INTO {table_name} ({columns_str}) VALUES ({placeholders}) '
+                                   f'ON CONFLICT ({conflict_target}) DO UPDATE SET {set_clause};')
                 # 开始写数据
                 try:
                     self.cur.execute(upsert_template, tuple(row.values()))

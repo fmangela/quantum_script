@@ -1,7 +1,7 @@
 [session]
-key = secret
-user = user
-password = password
+key =
+user =
+password =
 
 # 日志配置
 [log]
@@ -22,9 +22,9 @@ log_encoding = utf-8
 
 # 数据库连接配置
 [postgresql]
-enable = True
-host = 192.168.198.3
-port = 5432
-user = gphqdb
-password = G@@phqd$b
-database = stockdb
+enable = False
+host =
+port =
+user =
+password =
+database =
