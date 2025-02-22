@@ -28,3 +28,21 @@ port =
 user =
 password =
 database =
+
+# 消息推送
+[MessagePush]
+# 是否开启消息推送
+is_enable = False
+# 企业微信机器人
+WeCom = False
+
+# 钉钉消息推送
+[DingDing]
+enable = False
+# 钉钉机器人webhook地址
+webhook =
+# 安全设置-关键词（第一个关键词，多个关键词从第二个开始，放在消息中推送）
+# 第一个关键词设定为机器人昵称
+keyword =
+# 安全设置-加签
+secret =
