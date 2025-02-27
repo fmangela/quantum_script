@@ -1,5 +1,5 @@
 from file_config_loader import FileConfigLoader
-from quantum.file_rw_io import ROOTPATH
+from file_rw_io import ROOTPATH
 
 """
 CONFIG_读取配置文件

@@ -1,8 +1,8 @@
 """
 钉钉消息推送模块
 """
-from quantum.config import config_
-from quantum.logger import log
+from config import config_
+from logger import log
 import requests
 import json
 import time

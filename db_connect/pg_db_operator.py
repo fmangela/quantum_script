@@ -1,5 +1,5 @@
-from quantum.config import config_
-from quantum.logger import log
+from config import config_
+from logger import log
 # import psycopg2
 # from psycopg2.extras import DictCursor
 from psycopg2.pool import SimpleConnectionPool

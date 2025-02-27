@@ -1,7 +1,7 @@
 import logging
 from logging import StreamHandler
 from logging.handlers import TimedRotatingFileHandler
-from quantum.file_rw_io.file_name import tf_filename_compliant
+from file_rw_io.file_name import tf_filename_compliant
 import os
 
 

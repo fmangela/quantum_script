@@ -1,5 +1,5 @@
-from logger import setup_logger
-from quantum.config import config_
+from logger.logger import setup_logger
+from config import config_
 
 """
 log日志实例

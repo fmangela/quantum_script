@@ -1,4 +1,4 @@
-from quantum.config import config_
+from config import config_
 from dingding import Dingding
 
 if config_.getboolean('MessagePush', 'is_enable'):
